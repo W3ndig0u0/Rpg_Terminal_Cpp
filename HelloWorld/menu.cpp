@@ -68,7 +68,7 @@ void Menu::playerInfo()
 
   std::cout << "Vad är ditt namn?" << std::endl;
   std::cin >> playerName;
-  player.setName(playerName);
+  player.setEntityName(playerName);
 
   std::cout << "Hur gammal är du?" << std::endl;
   std::cin >> playerAge;
@@ -103,7 +103,7 @@ void Menu::showInfo()
   std::cout << std::string(20, '\n');
 
   std::cout << "INFO:" << std::endl;
-  std::cout << "Spelet handlar om något" << std::endl;
+  std::cout << "Spelet är en console rpg bla bla bla" << std::endl;
   std::cout << "Press any key to continue..." << std::endl;
 
   // !Clearar buffern i sin
