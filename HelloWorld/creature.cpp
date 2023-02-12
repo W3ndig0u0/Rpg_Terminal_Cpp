@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <vector>
 
 #include "entity.cpp"
 
@@ -16,7 +15,7 @@ class Creature : public Entity
 public:
   std::string classDisplayChoice();
   std::string raceDisplayChoice();
-  std::string DisplayChoise(std::vector<std::string> arrayChoose, std::string choiseWhat, std::string input, std::vector<std::string> arrayExplainChoise);
+  std::string DisplayChoise(std::string arrayChoose[], std::string choiseWhat, std::string input, std::string arrayExplainChoise[]);
 
   std::string getClass()
   {
@@ -82,73 +81,12 @@ std::string Creature::classDisplayChoice()
       "+[Uncommon] Handbook, +[Common] Small Mace, +[Common] Robe, +2x [Common] Mp Potions"};
   std::string selectedClasses;
 
-  std::vector<std::string> classVector(classes, classes + 5);
-  std::vector<std::string> raceExplainVector(classesExplain, classesExplain + 5);
-  return DisplayChoise(classVector, selectedClasses, "Class", raceExplainVector);
-}
-
-void moreInfoChoise(std::vector<std::string> arrayChoose, std::string choiseWhat, std::string input, std::vector<std::string> arrayExplainChoise)
-{
-  if (input == "1")
-  {
-    bool choiceExist;
-    std::string inputChoise;
-
-    while (!choiceExist)
-    {
-      std::cout << std::string(20, '\n');
-      std::cout << "Which " + choiseWhat + " do you want to know more about?" << std::endl;
-      for (int i = 0; i < arrayChoose.size(); i++)
-      {
-        std::cout << arrayChoose[i] << "\n";
-      }
-
-      std::cin >> inputChoise;
-      choiceExist = std::find(arrayChoose.begin(), arrayChoose.end(), inputChoise) != arrayChoose.end();
-
-      if (choiceExist)
-      {
-        if (choiseWhat == "Race")
-        {
-          if (inputChoise == "Human")
-          {
-            std::cout << "Humans are the most basic ass choise" << std::endl;
-          }
-          else if (inputChoise == "High Elves")
-          {
-            std::cout << "High elves are graceful, intelligent beings, with a greater capacity for intelligence than most humanoid races while also possessing an agility comparable with their elven kin. However they are not as musceler as the humaoid races." << std::endl;
-          }
-          else if (inputChoise == "Dwarfes")
-          {
-            std::cout << "Dwarves are short and stocky, but as heavy as a human. They are broad and stable creatures, perfectly suited to working close to the earth but as a consequnce they are . Their thick fingers are capable of surprisingly fine manipulations, while their strength allows them to dig through all but the hardest stone." << std::endl;
-          }
-          else if (inputChoise == "Orc")
-          {
-            std::cout << "Orcs are savage humanoids with green skin and a brutish appearance. They have no faculty for magic and lack both intelligence and agility, but are strong and capable warriors." << std::endl;
-          }
-          else if (inputChoise == "Dark Elves")
-          {
-            std::cout << "A member of a race of elves that is evil, has a dark skin and/or lives in dark places. As the other elf kin, the Dark Elves have confidents in thier extrene agility, while their phisical strength and defensive capabilities are a bit lacking. " << std::endl;
-          }
-        }
-
-        if (choiseWhat == "Class")
-        {
-        }
-      }
-
-      std::cout << "You did not write an appropiate answer, try again." << std::endl;
-      // !Clearar buffern i sin
-      std::cin.clear();
-      std::cin.sync();
-      std::cin.get();
-    }
-  }
+  return DisplayChoise(classes, "Class", selectedClasses, classesExplain);
 }
 
 std::string Creature::raceDisplayChoice()
 {
-  std::string races[5] = {"Human", "High Elves", "Dwarfes", "Orc", "Dark Elves"};
+  std::string races[5] = {"Human", "High-Elves", "Dwarfes", "Orc", "Dark-Elves"};
   std::string raceExplain[5] = {
       "Strength: +1, Hp: +1, Inteligence: +2 | Mp: -2, Defence: -2",
       "Inteligence: +3, Mp: +4, Speed: +2 | Strength: -4, Hp: -1 and Defence: -3  ",
@@ -157,13 +95,89 @@ std::string Creature::raceDisplayChoice()
       " Inteligence: +2, Mp: +1, Speed: +6 | Strength: -3 and Defence: -4 "};
 
   std::string selectedRace;
-  std::vector<std::string> raceVector(races, races + 5);
-  std::vector<std::string> raceExplainVector(raceExplain, raceExplain + 5);
+  // std::vector<std::string> raceVector(races, races + 5);
+  // std::vector<std::string> raceExplainVector(raceExplain, raceExplain + 5);
 
-  return DisplayChoise(raceVector, selectedRace, "Race", raceExplainVector);
+  return DisplayChoise(races, "Race", selectedRace, raceExplain);
 }
 
-std::string Creature::DisplayChoise(std::vector<std::string> arrayChoose, std::string choiseWhat, std::string input, std::vector<std::string> arrayExplainChoise)
+void moreInfoChoise(std::string arrayChoose[], std::string choiseWhat, std::string input)
+{
+  bool choiceExist;
+  std::string inputChoise;
+
+  while (!choiceExist)
+  {
+    std::cout << std::string(20, '\n');
+    std::cout << "Which " + choiseWhat + " do you want to know more about?" << std::endl;
+    for (int i = 0; i < 5; i++)
+    {
+      std::cout << arrayChoose[i] << "\n";
+    }
+
+    std::cin >> inputChoise;
+
+    for (int i = 0; i < 5; i++)
+    {
+      if (arrayChoose[i] == inputChoise)
+      {
+        choiceExist = true;
+      }
+    }
+
+    if (!choiceExist)
+    {
+      std::cout << "You did not write an appropiate answer, try again. :===" << std::endl;
+      std::cout << "Press The ENTER key to continue..." << std::endl;
+      // !Clearar buffern i sin
+      std::cin.clear();
+      std::cin.sync();
+      std::cin.get();
+    }
+
+    else if (choiceExist)
+    {
+      std::cout << std::string(20, '\n');
+
+      if (choiseWhat.compare("Race") == 0)
+      {
+        if (inputChoise.compare("Human") == 0)
+        {
+          std::cout << "Humans are the most basic ass choise" << std::endl;
+        }
+        else if (inputChoise.compare("High-Elves") == 0)
+        {
+          std::cout << "High elves are graceful, intelligent beings, with a greater capacity for intelligence than most humanoid races while also possessing an agility comparable with their elven kin. However they are not as musceler as the humaoid races." << std::endl;
+        }
+        else if (inputChoise.compare("Dwarfes") == 0)
+        {
+          std::cout << "Dwarves are short and stocky, but as heavy as a human. They are broad and stable creatures, perfectly suited to working close to the earth but as a consequnce they are . Their thick fingers are capable of surprisingly fine manipulations, while their strength allows them to dig through all but the hardest stone." << std::endl;
+        }
+        else if (inputChoise.compare("Orc") == 0)
+        {
+          std::cout << "Orcs are savage humanoids with green skin and a brutish appearance. They have no faculty for magic and lack both intelligence and agility, but are strong and capable warriors." << std::endl;
+        }
+        else if (inputChoise.compare("Dark-Elves") == 0)
+        {
+          std::cout << "A member of a race of elves that is evil, has a dark skin and/or lives in dark places. As the other elf kin, the Dark Elves have confidents in thier extrene agility, while their phisical strength and defensive capabilities are a bit lacking. " << std::endl;
+        }
+      }
+
+      else if (choiseWhat.compare("Class") == 0)
+      {
+        std::cout << "LOL" << std::endl;
+      }
+
+      std::cout << "Press The ENTER key to continue..." << std::endl;
+      // !Clearar buffern i sin
+      std::cin.clear();
+      std::cin.sync();
+      std::cin.get();
+    }
+  }
+}
+
+std::string Creature::DisplayChoise(std::string arrayChoose[], std::string choiseWhat, std::string input, std::string arrayExplainChoise[])
 {
   bool exists;
 
@@ -174,22 +188,31 @@ std::string Creature::DisplayChoise(std::vector<std::string> arrayChoose, std::s
     std::cout << "For more Infomation about one " + choiseWhat + ". Press : 1 " << std::endl
               << std::endl;
 
-    for (int i = 0; i < arrayChoose.size(); i++)
+    for (int i = 0; i < 5; i++)
     {
       std::cout << arrayChoose[i] << " - " << arrayExplainChoise[i] << "\n";
     }
 
     std::cin >> input;
-
     // !Mer info om valen
-    moreInfoChoise(arrayChoose, choiseWhat, input, arrayExplainChoise);
 
-    exists = std::find(arrayChoose.begin(), arrayChoose.end(), input) != arrayChoose.end();
+    for (int i = 0; i < 5; i++)
+    {
+      if (arrayChoose[i] == input)
+      {
+        exists = true;
+      }
+    }
+
+    if (input == "1")
+    {
+      moreInfoChoise(arrayChoose, choiseWhat, input);
+    }
 
     if (exists)
     {
-      std::cout << "You choose the " + choiseWhat + ": " + input << std::endl;
-      std::cout << "Press any button to continue..." << std::endl;
+      std::cout << "You chose the " + choiseWhat + ": " + input << std::endl;
+      std::cout << "Press The ENTER key to continue..." << std::endl;
       // !Clearar buffern i sin
       std::cin.clear();
       std::cin.sync();
@@ -197,12 +220,17 @@ std::string Creature::DisplayChoise(std::vector<std::string> arrayChoose, std::s
       return input;
     }
 
-    std::cout << "You did not write an appropiate answer, try again." << std::endl;
-    // !Clearar buffern i sin
-    std::cin.clear();
-    std::cin.sync();
-    std::cin.get();
+    else if (input != "1" && !exists)
+    {
+      std::cout << "You did not write an appropiate answer, try again." << std::endl;
+      std::cout << "Press The ENTER key to continue..." << std::endl;
+      std::cout << input << std::endl;
+      // !Clearar buffern i sin
+      std::cin.clear();
+      std::cin.sync();
+      std::cin.get();
+    }
   }
 
-  return "";
+  return input;
 }
