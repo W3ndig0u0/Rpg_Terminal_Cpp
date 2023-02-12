@@ -36,7 +36,7 @@ public:
   std::string getRace() { return race_; }
   void setRace(std::string race)
   {
-    race = race;
+    race_ = race;
   }
 
   int getLevel() { return level_; }
