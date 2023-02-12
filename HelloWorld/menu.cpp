@@ -8,7 +8,7 @@ public:
   void menuStart();
   void playerInfo();
 
-  void PlayGame();
+  void playGame();
   void showOption();
   void showInfo();
 };
@@ -33,7 +33,7 @@ void Menu::menuStart()
     switch (inputOption)
     {
     case 1:
-      CharacterCreation cc;
+      playGame();
       break;
 
     case 2:
@@ -54,6 +54,11 @@ void Menu::menuStart()
       break;
     }
   }
+}
+
+void Menu::playGame()
+{
+  CharacterCreation cc;
 }
 
 void Menu::showOption()

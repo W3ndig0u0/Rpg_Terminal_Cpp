@@ -13,12 +13,12 @@ public:
     setClass(rpgClass);
     setAge(age);
     setMp(mp);
-    setMaxMp(maxMp);
     setEntityName(entityName);
     setRace(race);
     setLevel(level);
     setExperience(experience);
     setHp(hp);
+    setMaxMp(maxMp);
     setMaxHp(maxHp);
     setStrength(strength);
     setSpeed(speed);
