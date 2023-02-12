@@ -17,10 +17,11 @@ void Menu::menuStart()
 {
   int inputOption;
 
-  std::cout << "välkommen till sten, sax o påse" << std::endl;
+  std::cout << "välkommen till Jings spel" << std::endl;
   // !Va i menyn till de tycker på start (3)
   while (inputOption != 1)
   {
+    std::cout << std::string(1, '\n');
     std::cout << "Välj en av alternativen: " << std::endl;
     std::cout << "1. Spela spelet " << std::endl;
     std::cout << "2. Inställningar " << std::endl;
@@ -48,6 +49,7 @@ void Menu::menuStart()
       break;
 
     default:
+      std::cout << std::string(20, '\n');
       std::cout << "Ej giltig svar: " << std::endl;
       break;
     }
@@ -56,6 +58,8 @@ void Menu::menuStart()
 
 void Menu::playerInfo()
 {
+  std::cout << std::string(20, '\n');
+
   // !Skapar för att det ska behålla spelarens egenskaper tills vi fårgar spelaren (början till spelet)
   std::string playerName;
   int playerAge;
@@ -82,10 +86,28 @@ void Menu::playerInfo()
 
 void Menu::showOption()
 {
-  std::cout << "OPTION" << std::endl;
+  std::cout << std::string(20, '\n');
+  std::cout << "OPTION:" << std::endl;
+  std::cout << "“C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do it blows your whole leg off.”:" << std::endl;
+
+  std::cout << "Press any key to continue..." << std::endl;
+
+  // !Clearar buffern i sin
+  std::cin.clear();
+  std::cin.sync();
+  std::cin.get();
 }
 
 void Menu::showInfo()
 {
-  std::cout << "INFO" << std::endl;
+  std::cout << std::string(20, '\n');
+
+  std::cout << "INFO:" << std::endl;
+  std::cout << "Spelet handlar om något" << std::endl;
+  std::cout << "Press any key to continue..." << std::endl;
+
+  // !Clearar buffern i sin
+  std::cin.clear();
+  std::cin.sync();
+  std::cin.get();
 }

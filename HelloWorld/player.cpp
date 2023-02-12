@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
+#include "creature.cpp"
 
-class Player
+class Player : public Creature
 {
   std::string name;
   int years;
