@@ -1,7 +1,10 @@
 #include <iostream>
+#include "menu.cpp"
 
 int main()
 {
-  std::cout << "TEXT INSTERTED" << std::endl;
+  Menu menu;
+  menu.menuStart();
+
   return 0;
 }

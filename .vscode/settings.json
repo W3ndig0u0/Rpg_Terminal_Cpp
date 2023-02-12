@@ -42,6 +42,8 @@
     "ostream": "cpp",
     "stdexcept": "cpp",
     "streambuf": "cpp",
-    "typeinfo": "cpp"
-  }
+    "typeinfo": "cpp",
+    "sstream": "cpp"
+  },
+  "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
 }
