@@ -1,8 +1,7 @@
-#include <iostream>
 #include <string>
 
-void func()
+std::string funcString()
 {
-  std::string hihi = "WOW A FUNCTION?!!??";
-  std::cout << hihi << std::endl;
+  std::string hihi = "WOW A STRING?!!??";
+  return hihi;
 }
