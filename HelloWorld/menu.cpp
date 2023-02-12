@@ -59,29 +59,24 @@ void Menu::menuStart()
 void Menu::playerInfo()
 {
   std::cout << std::string(20, '\n');
+  std::cout << "Du ska nu skapa din karaktär som du ska köra med!" << std::endl;
 
   // !Skapar för att det ska behålla spelarens egenskaper tills vi fårgar spelaren (början till spelet)
   std::string playerName;
   int playerAge;
 
-  Player player(playerName, playerAge, 0);
+  Player player(playerAge, 1, 1, playerName, "Human", 1, 1, 1, 1, 1, 1, 1);
 
-  std::cout << "Vad är ditt namn?" << std::endl;
+  std::cout
+      << "Vad ska din karaktär heta?" << std::endl;
   std::cin >> playerName;
   player.setEntityName(playerName);
 
-  std::cout << "Hur gammal är du?" << std::endl;
+  std::cout << "Hur gammal ska din karaktär vara?" << std::endl;
   std::cin >> playerAge;
   player.setAge(playerAge);
 
   std::cout << player.toString() << std::endl;
-
-  if (player.legalAge(playerAge) == false)
-  {
-    std::cout << "Tryck på en knapp för att avsluta programmet" << std::endl;
-    std::cin.get();
-    // exit(0);
-  }
 }
 
 void Menu::showOption()

@@ -31,14 +31,6 @@ public:
 
   std::string toString()
   {
-    return "Name: " + getEntityName() + ". Race: " + getRace();
-    +". maxHp: " + std::to_string(getMaxHp());
-    +". Hp: " + std::to_string(getHp());
-    +". Rarity: " + rarity_;
-    +". Level: " + std::to_string(getLevel());
-    +". Experience: " + std::to_string(getExperience());
-    +". Strength: " + std::to_string(getStrength());
-    +". Speed: " + std::to_string(getSpeed());
-    +". Defence: " + std::to_string(getDefence());
+    return "Name: " + getEntityName() + ". Race: " + getRace() + ". maxHp: " + std::to_string(getMaxHp()) + ". Hp: " + std::to_string(getHp()) + ". Rarity: " + rarity_ + ". Level: " + std::to_string(getLevel()) + ". Experience: " + std::to_string(getExperience()) + ". Strength: " + std::to_string(getStrength()) + ". Speed: " + std::to_string(getSpeed()) + ". Defence: " + std::to_string(getDefence());
   }
 };

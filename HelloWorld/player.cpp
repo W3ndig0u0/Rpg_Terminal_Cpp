@@ -6,19 +6,23 @@ class Player : public Creature
 {
 
 public:
-  bool legalAge(int age);
+  Player();
+
+  Player(int age, int mp, int maxMp, std::string entityName, std::string race, int level, int experience, int hp, int maxHp, int strength, int speed, int defence) : Creature(age, mp, maxMp, entityName, race, level, experience, hp, maxHp, strength, speed, defence)
+  {
+    setAge(age);
+    setMp(mp);
+    setMaxMp(maxMp);
+    setEntityName(entityName);
+    setRace(race);
+    setLevel(level);
+    setExperience(experience);
+    setHp(hp);
+    setMaxHp(maxHp);
+    setStrength(strength);
+    setSpeed(speed);
+    setDefence(defence);
+  }
 };
 
 // !Set när kontruktorn skapas
-
-bool Player::legalAge(int age)
-{
-  if (age < 18)
-  {
-    std::cout << "Du är för ung för att köra, kom tillbaka när du är 18 år." << std::endl;
-    return false;
-  }
-
-  std::cout << "Ha så kul och lycka till med spelandet" << std::endl;
-  return true;
-}

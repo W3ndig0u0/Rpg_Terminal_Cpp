@@ -31,10 +31,11 @@ public:
   // ?Inventory...
   // Inventory inventory;
 
-  Creature(int age, int mp, std::string entityName, std::string race, int level, int experience, int hp, int maxHp, int strength, int speed, int defence) : Entity(entityName, race, level, experience, hp, maxHp, strength, speed, defence)
+  Creature(int age, int mp, int maxMp, std::string entityName, std::string race, int level, int experience, int hp, int maxHp, int strength, int speed, int defence) : Entity(entityName, race, level, experience, hp, maxHp, strength, speed, defence)
   {
     age_ = age;
     mp_ = mp;
+    maxMp_ = maxMp;
     setEntityName(entityName);
     setRace(race);
     setLevel(level);
@@ -48,16 +49,6 @@ public:
 
   std::string toString()
   {
-    return "Name: " + getEntityName() + ". Race: " + getRace();
-    +". maxHp: " + std::to_string(getMaxHp());
-    +". Hp: " + std::to_string(getHp());
-    +". Level: " + std::to_string(getLevel());
-    +". Experience: " + std::to_string(getExperience());
-    +". Age: " + age_;
-    +". MaxMp: " + maxMp_;
-    +". Mp: " + mp_;
-    +". Strength: " + std::to_string(getStrength());
-    +". Speed: " + std::to_string(getSpeed());
-    +". Defence: " + std::to_string(getDefence());
+    return "Name: " + getEntityName() + ". Race: " + getRace() + ". MaxHp: " + std::to_string(getMaxHp()) + ". Hp: " + std::to_string(getHp()) + ". Level: " + std::to_string(getLevel()) + ". Experience: " + std::to_string(getExperience()) + ". Age: " + std::to_string(age_) + ". MaxMp: " + std::to_string(maxMp_) + ". Mp: " + std::to_string(mp_) + ". Strength: " + std::to_string(getStrength()) + ". Speed: " + std::to_string(getSpeed()) + ". Defence: " + std::to_string(getDefence());
   }
 };
