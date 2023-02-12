@@ -65,7 +65,7 @@ void Menu::playerInfo()
   std::string playerName;
   int playerAge;
 
-  Player player(playerAge, 1, 1, playerName, "Human", 1, 1, 1, 1, 1, 1, 1);
+  Player player("Class", playerAge, 1, 1, playerName, "Human", 1, 1, 1, 1, 1, 1, 1);
 
   std::cout
       << "Vad ska din karaktär heta?" << std::endl;
