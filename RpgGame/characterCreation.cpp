@@ -78,6 +78,7 @@ CharacterCreation::CharacterCreation()
 
   std::string classes[5] = {"Knight", "Wizard", "Rogue", "Rangers", "Clerics"};
   std::string classesExplain[5] = {
+
       "+[Uncommon] Sword, +[Common]Armor, +2x [Common] Hp Potions ",
       "+[Uncommon] Magic Wand, +[Common] Robe, +2x [Common] Mp Potions ",
       "+[Uncommon] Dagger, +[Common] Lesser Bow, +[Common] Thief Hood, +2x [Common] Arrows ",
