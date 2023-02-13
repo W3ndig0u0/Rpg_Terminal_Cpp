@@ -24,7 +24,7 @@ CharacterCreation::CharacterCreation()
   std::cin >> playerName;
   player.setEntityName(playerName);
 
-  std::cout << "Hur gammal ska din karaktär vara?" << std::endl;
+  std::cout << "Hur gammal ska din karaktär vara? " << std::endl;
   std::cin >> playerAge;
   player.setAge(playerAge);
 
