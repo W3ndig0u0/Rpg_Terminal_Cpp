@@ -11,6 +11,7 @@ class Creature : public Entity
   int age_;
   int mp_;
   int maxMp_;
+  int intelligence_;
 
 public:
   std::string classDisplayChoice();
@@ -44,11 +45,18 @@ public:
     maxMp_ = maxMp;
   }
 
+  int getIntelligence() { return intelligence_; }
+  void setIntelligence(int intelligence)
+  {
+    intelligence_ = intelligence;
+  }
+
   // ?Inventory...
   // Inventory inventory;
 
-  Creature(std::string rpgClass, int age, int mp, int maxMp, std::string entityName, std::string race, int level, int experience, int hp, int maxHp, int strength, int speed, int defence) : Entity(entityName, race, level, experience, hp, maxHp, strength, speed, defence)
+  Creature(std::string rpgClass, int age, int intelligence, int mp, int maxMp, std::string entityName, std::string race, int level, int experience, int hp, int maxHp, int strength, int speed, int defence) : Entity(entityName, race, level, experience, hp, maxHp, strength, speed, defence)
   {
+    intelligence_ = intelligence;
     class_ = rpgClass;
     age_ = age;
     mp_ = mp;
@@ -88,11 +96,11 @@ std::string Creature::raceDisplayChoice()
 {
   std::string races[5] = {"Human", "High-Elves", "Dwarfes", "Orc", "Dark-Elves"};
   std::string raceExplain[5] = {
-      "Strength: +1, Hp: +1, Inteligence: +2 | Mp: -2, Defence: -2",
-      "Inteligence: +3, Mp: +4, Speed: +2 | Strength: -4, Hp: -1 and Defence: -3  ",
-      "Strength: +2, Hp: +2, Defence: +2 | Mp : -3, Speed: -3 Inteligence: -1",
-      "Strength: +6, Hp: +4 Defence: +1| Mp : -5, Speed: -5 Inteligence: -4 ",
-      " Inteligence: +2, Mp: +1, Speed: +6 | Strength: -3 and Defence: -4 "};
+      "Strength: +1, Hp: +1, Inteligence: +2 | Mp: -2, Defence: -1",
+      "Inteligence: +3, Mp: +4, Speed: +2 | Strength: -4, Hp: -1 and Defence: -2  ",
+      "Strength: +2, Hp: +2, Defence: +2 | Mp: -3, Speed: -2 Inteligence: -3",
+      "Strength: +6, Hp: +4 Defence: +1| Mp: -5, Speed: -4 Inteligence: -4 ",
+      " Inteligence: +2, Mp: +1, Speed: +6 | Strength: -2, Defence: -4, Hp: -2"};
 
   std::string selectedRace;
   // std::vector<std::string> raceVector(races, races + 5);
@@ -108,7 +116,7 @@ void moreInfoChoise(std::string arrayChoose[], std::string choiseWhat, std::stri
 
   while (!choiceExist)
   {
-    std::cout << std::string(20, '\n');
+    std::cout << std::string(100, '\n');
     std::cout << "Which " + choiseWhat + " do you want to know more about?" << std::endl;
     for (int i = 0; i < 5; i++)
     {
@@ -127,7 +135,7 @@ void moreInfoChoise(std::string arrayChoose[], std::string choiseWhat, std::stri
 
     if (!choiceExist)
     {
-      std::cout << "You did not write an appropiate answer, try again. :===" << std::endl;
+      std::cout << "You did not write an appropiate answer, try again." << std::endl;
       std::cout << "Press The ENTER key to continue..." << std::endl;
       // !Clearar buffern i sin
       std::cin.clear();
@@ -137,7 +145,7 @@ void moreInfoChoise(std::string arrayChoose[], std::string choiseWhat, std::stri
 
     else if (choiceExist)
     {
-      std::cout << std::string(20, '\n');
+      std::cout << std::string(100, '\n');
 
       if (choiseWhat.compare("Race") == 0)
       {
@@ -183,7 +191,7 @@ std::string Creature::DisplayChoise(std::string arrayChoose[], std::string chois
 
   while (!exists)
   {
-    std::cout << std::string(20, '\n');
+    std::cout << std::string(100, '\n');
     std::cout << "Choose one of the avaliable " + choiseWhat + "." << std::endl;
     std::cout << "For more Infomation about one " + choiseWhat + ". Press : 1 " << std::endl
               << std::endl;
@@ -220,7 +228,7 @@ std::string Creature::DisplayChoise(std::string arrayChoose[], std::string chois
       return input;
     }
 
-    else if (input != "1" && !exists)
+    else if (input != "1" || !exists)
     {
       std::cout << "You did not write an appropiate answer, try again." << std::endl;
       std::cout << "Press The ENTER key to continue..." << std::endl;

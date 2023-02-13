@@ -6,6 +6,7 @@ class CharacterCreation
 {
 public:
   CharacterCreation();
+  void raceStats(std::string race, Player player);
 };
 
 CharacterCreation::CharacterCreation()
@@ -17,7 +18,7 @@ CharacterCreation::CharacterCreation()
   std::string playerName;
   int playerAge;
 
-  Player player("Class", playerAge, 1, 1, playerName, "Human", 1, 1, 1, 1, 1, 1, 1);
+  Player player("Class", playerAge, 1, 1, 1, playerName, "Human", 1, 1, 1, 1, 1, 1, 1);
 
   std::cout << "Vad ska din karaktär heta?" << std::endl;
   std::cin >> playerName;
@@ -29,6 +30,56 @@ CharacterCreation::CharacterCreation()
 
   player.setRace(player.raceDisplayChoice());
   player.setClass(player.classDisplayChoice());
+  raceStats(player.getRace(), player);
 
-  std::cout << player.toString() << std::endl;
+  std::cout
+      << player.toString() << std::endl;
+}
+
+void CharacterCreation::raceStats(std::string race, Player player)
+{
+  if (race == "Human")
+  {
+    player.setStrength(6);
+    player.setMaxHp(6);
+    player.setIntelligence(6);
+    player.setMaxMp(3);
+    player.setDefence(4);
+  }
+  else if (race == "High-Elves")
+  {
+    player.setIntelligence(8);
+    player.setMaxMp(9);
+    player.setSpeed(7);
+    player.setMaxHp(4);
+    player.setStrength(1);
+    player.setDefence(2);
+  }
+  else if (race == "Dwarfes")
+  {
+    player.setStrength(7);
+    player.setMaxHp(7);
+    player.setDefence(7);
+    player.setMaxMp(2);
+    player.setSpeed(3);
+    player.setIntelligence(2);
+  }
+  else if (race == "Orc")
+  {
+    player.setStrength(11);
+    player.setMaxHp(9);
+    player.setDefence(6);
+    player.setMaxMp(0);
+    player.setSpeed(1);
+    player.setIntelligence(0);
+  }
+  else if (race == "Dark-Elves")
+  {
+    player.setStrength(3);
+    player.setDefence(1);
+    player.setMaxMp(6);
+    player.setMaxHp(3);
+    player.setSpeed(11);
+    player.setIntelligence(7);
+  }
 }

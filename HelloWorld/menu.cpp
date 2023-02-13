@@ -15,7 +15,7 @@ public:
 
 void Menu::menuStart()
 {
-  int inputOption;
+  int inputOption = 0;
 
   std::cout << "välkommen till Jings spel" << std::endl;
   // !Va i menyn till de tycker på start (3)
@@ -49,7 +49,7 @@ void Menu::menuStart()
       break;
 
     default:
-      std::cout << std::string(20, '\n');
+      std::cout << std::string(100, '\n');
       std::cout << "Ej giltig svar: " << std::endl;
       break;
     }
@@ -63,13 +63,14 @@ void Menu::playGame()
 
 void Menu::showOption()
 {
-  std::cout << std::string(20, '\n');
+  std::cout << std::string(100, '\n');
   std::cout << "OPTION:" << std::endl;
   std::cout << "“C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do it blows your whole leg off.”:" << std::endl;
 
   std::cout << "Press any key to continue..." << std::endl;
 
   // !Clearar buffern i sin
+
   std::cin.clear();
   std::cin.sync();
   std::cin.get();
@@ -77,7 +78,7 @@ void Menu::showOption()
 
 void Menu::showInfo()
 {
-  std::cout << std::string(20, '\n');
+  std::cout << std::string(100, '\n');
 
   std::cout << "INFO:" << std::endl;
   std::cout << "Spelet är en console rpg bla bla bla" << std::endl;
