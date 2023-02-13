@@ -76,6 +76,14 @@ CharacterCreation::CharacterCreation()
     player.setIntelligence(7);
   }
 
+  std::string classes[5] = {"Knight", "Wizard", "Rogue", "Rangers", "Clerics"};
+  std::string classesExplain[5] = {
+      "+[Uncommon] Sword, +[Common]Armor, +2x [Common] Hp Potions ",
+      "+[Uncommon] Magic Wand, +[Common] Robe, +2x [Common] Mp Potions ",
+      "+[Uncommon] Dagger, +[Common] Lesser Bow, +[Common] Thief Hood, +2x [Common] Arrows ",
+      "+[Uncommon] Long Bow, +[Common] Cloak, +10x [Common] Arrows + 1x [Common] Hp Potions, +1x [Common] Mp Potions",
+      "+[Uncommon] Handbook, +[Common] Small Mace, +[Common] Robe, +2x [Common] Mp Potions"};
+
   std::cout << std::string(100, '\n');
   std::cout << player.toString() << std::endl;
 }
