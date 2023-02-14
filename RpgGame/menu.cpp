@@ -69,8 +69,12 @@ void Menu::showOption()
 
   std::cout << "Press any key to continue..." << std::endl;
 
-  // !Clearar buffern i sin
+  bufferCin();
+}
 
+// !Clearar buffern i sin
+void bufferCin()
+{
   std::cin.clear();
   std::cin.sync();
   std::cin.get();
