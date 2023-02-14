@@ -46,6 +46,16 @@ CharacterCreation::CharacterCreation()
   std::cout << player.toString() << std::endl;
 }
 
+void setStats(Player player)
+{
+  player.setMaxHp(1);
+  player.setMaxMp(1);
+  player.setStrength(6);
+  player.setSpeed(10);
+  player.setDefence(7);
+  player.setIntelligence(7);
+}
+
 void CharacterCreation::raceStats(Player player)
 {
   std::cout << player.toString() << std::endl;
