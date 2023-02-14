@@ -81,7 +81,7 @@ public:
 
   std::string toString()
   {
-    return "Name: " + getEntityName() + ". Race: " + getRace() + ". Class: " + class_ + ". Age: " + std::to_string(age_) + ". Hp: " + std::to_string(getHp()) + ". MaxHp: " + std::to_string(getMaxHp()) + ". MaxMp: " + std::to_string(maxMp_) + ". Mp: " + std::to_string(mp_) + ". Strength: " + std::to_string(getStrength()) + ". Speed: " + std::to_string(getSpeed()) + ". Defence: " + std::to_string(getDefence()) + ". Level: " + std::to_string(getLevel()) + ". Experience: " + std::to_string(getExperience());
+    return "Name: " + getEntityName() + ". Race: " + getRace() + ". Class: " + class_ + ". Age: " + std::to_string(age_) + ". \nHp: " + std::to_string(getHp()) + ". MaxHp: " + std::to_string(getMaxHp()) + ". MaxMp: " + std::to_string(maxMp_) + ". '/n'Mp: " + std::to_string(mp_) + ". \nStrength: " + std::to_string(getStrength()) + ". Speed: " + std::to_string(getSpeed()) + ". Defence: " + std::to_string(getDefence()) + ". \nLevel: " + std::to_string(getLevel()) + ". Experience: " + std::to_string(getExperience());
   }
 };
 
@@ -176,6 +176,7 @@ void moreInfoChoise(std::string arrayChoose[], std::string choiseWhat, std::stri
       }
 
       else if (choiseWhat.compare("Class") == 0)
+
       {
         if (inputChoise.compare("Knight") == 0)
         {

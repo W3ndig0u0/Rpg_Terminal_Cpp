@@ -11,6 +11,7 @@ public:
   void playGame();
   void showOption();
   void showInfo();
+  void menuChoise(int inputOption);
 };
 
 void Menu::menuStart()
@@ -29,31 +30,44 @@ void Menu::menuStart()
     std::cout << "4. Lämna spelet" << std::endl;
 
     std::cin >> inputOption;
-
-    switch (inputOption)
-    {
-    case 1:
-      playGame();
-      break;
-
-    case 2:
-      showOption();
-      break;
-
-    case 3:
-      showInfo();
-      break;
-
-    case 4:
-      exit(0);
-      break;
-
-    default:
-      std::cout << std::string(100, '\n');
-      std::cout << "Ej giltig svar: " << std::endl;
-      break;
-    }
+    menuChoise(inputOption);
   }
+}
+
+void Menu::menuChoise(int inputOption)
+{
+  switch (inputOption)
+  {
+  case 1:
+    std::cout << "AA" << std::endl;
+    Menu::playGame();
+    break;
+
+  case 2:
+    Menu::showOption();
+    break;
+
+  case 3:
+    Menu::showInfo();
+    break;
+
+  case 4:
+    exit(0);
+    break;
+
+  default:
+    std::cout << std::string(100, '\n');
+    std::cout << "Ej giltig svar: " << std::endl;
+    break;
+  }
+}
+
+// !Clearar buffern i sin
+void bufferCin()
+{
+  std::cin.clear();
+  std::cin.sync();
+  std::cin.get();
 }
 
 void Menu::playGame()
@@ -70,14 +84,6 @@ void Menu::showOption()
   std::cout << "Press any key to continue..." << std::endl;
 
   bufferCin();
-}
-
-// !Clearar buffern i sin
-void bufferCin()
-{
-  std::cin.clear();
-  std::cin.sync();
-  std::cin.get();
 }
 
 void Menu::showInfo()

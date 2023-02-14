@@ -73,5 +73,4 @@ public:
   {
     defence_ = defence;
   }
-  
 };

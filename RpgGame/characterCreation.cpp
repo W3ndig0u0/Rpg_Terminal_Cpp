@@ -6,7 +6,7 @@ class CharacterCreation
 {
 public:
   CharacterCreation();
-  void raceStats(std::string race, Player player);
+  void raceStats(Player player);
 };
 
 CharacterCreation::CharacterCreation()
@@ -30,6 +30,25 @@ CharacterCreation::CharacterCreation()
 
   player.setRace(player.raceDisplayChoice());
   player.setClass(player.classDisplayChoice());
+
+  std::string classes[5] = {"Knight", "Wizard", "Rogue", "Rangers", "Clerics"};
+  std::string classesExplain[5] = {
+
+      "+[Uncommon] Sword, +[Common]Armor, +2x [Common] Hp Potions ",
+      "+[Uncommon] Magic Wand, +[Common] Robe, +2x [Common] Mp Potions ",
+      "+[Uncommon] Dagger, +[Common] Lesser Bow, +[Common] Thief Hood, +2x [Common] Arrows ",
+      "+[Uncommon] Long Bow, +[Common] Cloak, +10x [Common] Arrows + 1x [Common] Hp Potions, +1x [Common] Mp Potions",
+      "+[Uncommon] Handbook, +[Common] Small Mace, +[Common] Robe, +2x [Common] Mp Potions"};
+
+  raceStats(player);
+
+  std::cout << std::string(100, '\n');
+  std::cout << player.toString() << std::endl;
+}
+
+void CharacterCreation::raceStats(Player player)
+{
+  std::cout << player.toString() << std::endl;
 
   if (player.getRace() == "Human")
   {
@@ -75,67 +94,4 @@ CharacterCreation::CharacterCreation()
     player.setSpeed(10);
     player.setIntelligence(7);
   }
-
-  std::string classes[5] = {"Knight", "Wizard", "Rogue", "Rangers", "Clerics"};
-  std::string classesExplain[5] = {
-
-      "+[Uncommon] Sword, +[Common]Armor, +2x [Common] Hp Potions ",
-      "+[Uncommon] Magic Wand, +[Common] Robe, +2x [Common] Mp Potions ",
-      "+[Uncommon] Dagger, +[Common] Lesser Bow, +[Common] Thief Hood, +2x [Common] Arrows ",
-      "+[Uncommon] Long Bow, +[Common] Cloak, +10x [Common] Arrows + 1x [Common] Hp Potions, +1x [Common] Mp Potions",
-      "+[Uncommon] Handbook, +[Common] Small Mace, +[Common] Robe, +2x [Common] Mp Potions"};
-
-  std::cout << std::string(100, '\n');
-  std::cout << player.toString() << std::endl;
 }
-
-// void CharacterCreation::raceStats(std::string race, Player player)
-// {
-//   std::cout << race << std::endl;
-//   std::cout << player.toString() << std::endl;
-
-//   if (race == "Human")
-//   {
-//     player.setStrength(6);
-//     player.setMaxHp(6);
-//     player.setIntelligence(6);
-//     player.setMaxMp(3);
-//     player.setDefence(4);
-//   }
-//   else if (race == "High-Elves")
-//   {
-//     player.setIntelligence(8);
-//     player.setMaxMp(9);
-//     player.setSpeed(7);
-//     player.setMaxHp(4);
-//     player.setStrength(1);
-//     player.setDefence(2);
-//   }
-//   else if (race == "Dwarfes")
-//   {
-//     player.setStrength(7);
-//     player.setMaxHp(7);
-//     player.setDefence(7);
-//     player.setMaxMp(2);
-//     player.setSpeed(3);
-//     player.setIntelligence(2);
-//   }
-//   else if (race == "Orc")
-//   {
-//     player.setStrength(11);
-//     player.setMaxHp(9);
-//     player.setDefence(6);
-//     player.setMaxMp(0);
-//     player.setSpeed(1);
-//     player.setIntelligence(0);
-//   }
-//   else if (race == "Dark-Elves")
-//   {
-//     player.setStrength(3);
-//     player.setDefence(1);
-//     player.setMaxMp(6);
-//     player.setMaxHp(4);
-//     player.setSpeed(10);
-//     player.setIntelligence(7);
-//   }
-// }
