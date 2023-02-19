@@ -5,6 +5,5 @@ int main()
 {
   Menu menu;
   menu.menuStart();
-
   return 0;
 }
