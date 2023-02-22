@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-
 #include "entity.cpp"
 
 class Creature : public Entity
