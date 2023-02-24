@@ -1,8 +1,7 @@
-#include <iostream>
 #include "menu.cpp"
+#include <iostream>
 
-int main()
-{
+int main() {
   Menu menu;
   menu.menuStart();
   return 0;
