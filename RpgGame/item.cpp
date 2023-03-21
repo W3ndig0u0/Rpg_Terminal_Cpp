@@ -9,6 +9,7 @@ public:
   std::string rarity_;
 
   std::string getRarity() { return rarity_; }
+
   void setRarity(std::string rarity)
   {
     rarity_ = rarity;
